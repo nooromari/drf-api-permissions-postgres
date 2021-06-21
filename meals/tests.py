@@ -14,15 +14,15 @@ class BlogTests(TestCase):
 
         # Create a meal for the resturant menue 
         test_meal = Meal.objects.create(
-          name="Shawerma", chef=testuser1, price=2
+          name="Shawerma", author=testuser1, price=2
         )
         test_meal.save()
 
     def test_blog_content(self):
         meal = Meal.objects.get(id=1)
-        expected_chef = f"{meal.chef}"
+        expected_author = f"{meal.author}"
         expected_name = f"{meal.name}"
-        expected_count = f"{meal.count}"
-        self.assertEqual(expected_chef, "testuser1")
+        expected_price = meal.price
+        self.assertEqual(expected_author, "testuser1")
         self.assertEqual(expected_name, "Shawerma")
-        self.assertEqual(expected_count, 2)
+        self.assertEqual(expected_price, 2)

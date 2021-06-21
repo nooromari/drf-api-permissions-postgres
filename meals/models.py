@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Meal(models.Model):
     name = models.CharField(max_length=64)
-    chef = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     price = models.IntegerField()
     date = models.DateField(auto_now_add=True)
 
